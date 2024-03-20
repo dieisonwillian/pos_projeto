@@ -67,10 +67,11 @@ void coletor(int rank, int total_workers) {
         global_count += local_count;
         if (elapsed_time > max_time) {
             max_time = elapsed_time;
-        }        
+        }    
+        workers_done++;    
     }
-    printf("Coletor (rank %d): Total Numero Primo: %d\n", rank, global_count);
-    printf("Coletor (rank %d): Max elapsed time among workers: %.6f seconds\n", rank, max_time);
+    printf("Coletor (rank %d): Total Numero Primos: %d\n", rank, global_count);
+    printf("Coletor (rank %d): Tempo Maximo de execução de todos os Trabalhadores: %.6f seconds\n", rank, max_time);
 }
 
 
