@@ -59,7 +59,7 @@ void coletor(int rank, int total_workers) {
         int local_count;
         double elapsed_time;
 
-        MPI_Recv(&local_count, 1, MPI_INT, MPI_ANY_SOURCE, TAG_RESULT, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+        MPI_Recv(&local_count, 1, MPI_INT, MPI_ANY_SOURCE, TAG_RESULT, MPI_COMM_WORLD, &status);
         MPI_Recv(&elapsed_time, 1, MPI_DOUBLE, status.MPI_SOURCE, TAG_RESULT, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 
         printf("Coletor (rank %d): Recebe resultado do trabalhador %d: %d, Tempo %.6f segundos\n", rank, status.MPI_SOURCE, local_count, elapsed_time);
