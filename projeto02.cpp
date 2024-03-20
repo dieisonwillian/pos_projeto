@@ -46,19 +46,23 @@ void worker(int rank) {
     MPI_Send(&local_count, 1, MPI_INT, 0, TAG_RESULT, MPI_COMM_WORLD);
     MPI_Send(&elapsed_time, 1, MPI_DOUBLE, 0, TAG_RESULT, MPI_COMM_WORLD);
 
-    printf("Trabalhador %d (rank %d): Envia resultado para o coletor\n", rank, rank, elapsed_time);
+    printf("Trabalhador %d (rank %d): Envia resultado para o coletor, Elapsed time: %.6f seconds\n", rank, rank, elapsed_time);
 }
 
 void coletor(int rank, int total_workers) {
     int global_count = 0;
     double max_time = 0;
-    for (int i = 1; i <= total_workers; i++) {
+    MPI_Status status;
+    int workers_done = 0;
+    
+    while  (workers_done < total_workers) {
         int local_count;
         double elapsed_time;
+
         MPI_Recv(&local_count, 1, MPI_INT, i, TAG_RESULT, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         MPI_Recv(&elapsed_time, 1, MPI_DOUBLE, i, TAG_RESULT, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 
-        printf("Coletor (rank %d): Recebe resultado do trabalhador %d: %d, Tempo %.6f segundos\n", rank, i, local_count, elapsed_time);
+        printf("Coletor (rank %d): Recebe resultado do trabalhador %d: %d, Tempo %.6f segundos\n", rank, status.MPI_SOURCE, local_count, elapsed_time);
         
         global_count += local_count;
         if (elapsed_time > max_time) {
