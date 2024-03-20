@@ -1,0 +1,278 @@
+  1  clear
+    2  apt-get update
+    3  ifconfig
+    4  apt install net-tools git vi gcc g++ git
+    5  apt-get upgrade
+    6  apt install net-tools git vi gcc g++ git
+    7  apt-get update
+    8  apt install net-tools git vi gcc g++ git
+    9  ping 1.1.1.1 -t
+   10  ping 1.1.1.1
+   11  apt install net-tools
+   12  apt install git
+   13  apt install vi
+   14  apt install gcc
+   15  apt install g++
+   16  ifconfig
+   17  shutdown now
+   18  cd /
+   19  ls
+   20  cd /etc/netplan/
+   21  ls
+   22  vim 01-network-manager-all.yaml
+   23  netplan apply
+   24  vim 01-network-manager-all.yaml
+   25  netplan apply
+   26  ls
+   27  clear
+   28  ls -la
+   29  netplan apply
+   30  ls -la
+   31  sudo netplan apply
+   32  ifconfig
+   33  ping 1.1.1.1
+   34  vim 01-network-manager-all.yaml
+   35  netplan apply
+   36  ping 1.1.1.1
+   37  ifconfig
+   38  clear
+   39  ls
+   40  shutdown now
+   41  ls /sys/class/net/
+   42  cd /etc/netplan/
+   43  ls
+   44  cp 01-network-manager-all.yaml 01-network-manager-all.yaml.old
+   45  ls
+   46  vi 01-network-manager-all.yaml
+   47  apt install nano
+   48  nano 01-network-manager-all.yaml
+   49  ls
+   50  cat 01-network-manager-all.yaml
+   51  clear
+   52  cat 01-network-manager-all.yaml
+   53  netplan apply
+   54  vi 01-network-manager-all.yaml
+   55  nano 01-network-manager-all.yaml
+   56  netplan apply
+   57  clear
+   58  netplan apply
+   59  apt install vi
+   60  apt instal vim
+   61  apt install vim
+   62  vim 01-network-manager-all.yaml
+   63  netplan apply
+   64  ls /sys/class/net/
+   65  ls
+   66  ifconfig
+   67  ping 1.1.1.1
+   68  clear
+   69  vin /etc/hostname
+   70  vim /etc/host
+   71  vim /etc/hostname
+   72  cd /etc/
+   73  ls
+   74  ls | grep host
+   75  vim hosts
+   76  clear
+   77  ls
+   78  clear
+   79  adduser mpihpc --uid 7777
+   80  usermod -aG sudo mpihpc
+   81  su mpihpc
+   82  exit
+   83  shutdown now
+   84  cd /etc/netplan/
+   85  ls
+   86  vim 01-network-manager-all.yaml
+   87  netplan apply
+   88  ifconfig
+   89  ssh secondary
+   90  vim /etc/hosts
+   91  ssh secondary1
+   92  ssh
+   93  apt install openssj
+   94  apt install openssh
+   95  clear
+   96  ls
+   97  clear
+   98  ssh secondary1
+   99  apt install ssh
+  100  ssh secondary2
+  101  ssh secondary1
+  102  su mpihpc
+  103  reboot
+  104  apt install htop
+  105  clear
+  106  shutdown now
+  107  ls
+  108  git https://github.com/dalvangriebler/ppd-cloud-2024.git
+  109  git clone https://github.com/dalvangriebler/ppd-cloud-2024.git
+  110  ls
+  111  cd ppd-cloud-2024/
+  112  ls
+  113  cd ..
+  114  ls
+  115  df -
+  116  df -h
+  117  ls
+  118  cd ppd-cloud-2024/
+  119  ls
+  120  clear
+  121  ls
+  122  cd TBB/
+  123  ls
+  124  clear
+  125  ls -la
+  126  vim matrix_multi.cpp
+  127  clear
+  128  ls
+  129  clear
+  130  ls -la
+  131  clear
+  132  sudo apt lib-tbb-dev
+  133  apt install lib-tbb-dev
+  134  apt install libtbb-dev
+  135  clear
+  136  ls -la
+  137  vim matrix_multi_tbb.cpp
+  138  g++ -std=c++1y matrix_multi.cpp -o exe -ltbb
+  139  ./exe
+  140  cd ppd-cloud-2024/
+  141  ls
+  142  cd TBB/
+  143  ls
+  144  clear
+  145  ls -la
+  146  vim matrix_multi_tbb.cpp
+  147  ./exe 2
+  148  rm -rf exe
+  149  ls
+  150  g++ -O3 -std=c++1y matrix_multi.cpp -o exe -ltbb
+  151  ls
+  152  cleqr
+  153  clear
+  154  ls
+  155  ./exe 4
+  156  apt instal libtbb-dev
+  157  apt install libtbb-dev
+  158  clear
+  159  ./exe 4
+  160  clear
+  161  ls
+  162  vim matrix_multi_tbb.cpp
+  163  rm -rf exe
+  164  g++ -O3 -std=c++1y matrix_multi.cpp -o exe -ltbb
+  165  ls
+  166  ./exe
+  167  vim matrix_multi_tbb.cpp
+  168  ls -la
+  169  clear
+  170  ls -la
+  171  rm -rf exe
+  172  g++ -O3 -std=c++1y matrix_multi.cpp -o exe -ltbb
+  173  ./exe
+  174  vim matrix_multi_tbb.cpp
+  175  ls -la
+  176  rm -rf .matrix_multi_tbb.cpp.swp
+  177  ls
+  178  clear
+  179  ls
+  180  clear
+  181  ls -la
+  182  vim matrix_multi_tbb.cpp
+  183  rm -rf exe
+  184  g++ -O3 -std=c++1y matrix_multi.cpp -o exe -ltbb
+  185  ./exe
+  186  cd ..
+  187  ls
+  188  clear
+  189  ls -la
+  190  git pull
+  191  ls
+  192  cd OpenMP/
+  193  ls
+  194  clear
+  195  ls
+  196  vim mm_omp.cpp
+  197  cd ..
+  198  git pull
+  199  ls
+  200  cd OpenMP/
+  201  ls
+  202  cd mm_omp.cpp
+  203  vim mm_omp.cpp
+  204  cd ..
+  205  git pull
+  206  cd OpenMP/
+  207  vim mm_omp.cpp
+  208  g++ -Wall -std=c++1y -O3 mm_omp.cpp -o exe -fopenmp
+  209  ./exe
+  210  ls
+  211  ./exe
+  212  ./exe 2000 4
+  213  clear
+  214  c d..
+  215  cd ..
+  216  git pull
+  217  cd OpenMP/
+  218  ls
+  219  rm -rf exe
+  220  vim mm_omp.cpp
+  221  g++ -Wall -std=c++1y -O3 mm_omp.cpp -o exe -fopenmp
+  222  ./exe 2000 4
+  223  ./exe 2000 2
+  224  export OMP_NUM_THREADS 2
+  225  export OMP_NUM_THREADS=2
+  226  ./exe 2000 4
+  227  cd ..
+  228  ls
+  229  git pull
+  230  ls
+  231  cd MPI/
+  232  ls
+  233  clear
+  234  ls -la
+  235  ls
+  236  vim master_slave.cpp
+  237  mpic++ -O3 -std=c++1y -Wall master_slave.cpp -o exe
+  238  mpirun -np 4 ./exe
+  239  exit
+  240  cd ppd-cloud-2024/TBB/
+  241  ls
+  242  vim matrix_multi_tbb.cpp
+  243  git pull
+  244  ls
+  245  cd MPI/
+  246  ls
+  247  cp master_slave.cpp /home/dieison/project/
+  248  ls
+  249  clear
+  250  ls -la
+  251  clear
+  252  cd ..
+  253  c d..
+  254  cd ..
+  255  ls
+  256  cd project/
+  257  ls
+  258  cp projeto01.cpp /home/mpihpc/shared/projeto/
+  259  ls
+  260  cp projeto01.cpp /home/mpihpc/shared/projeto/
+  261  shutdown now
+  262  cd /home/mpihpc/
+  263  s
+  264  ls
+  265  clear
+  266  cd shared/
+  267  ls
+  268  ls -la
+  269  ssh secondary1
+  270  su mpihpc
+  271  ls
+  272  cd ppd-cloud-2024/
+  273  ls
+  274  cd ..
+  275  cd project/
+  276  ls
+  277  clear
+  278  history >> history.txt
