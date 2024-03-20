@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <mpi.h>
 
-
 #define TAG_TASK 1
 #define TAG_RESULT 2
 
@@ -20,7 +19,6 @@ int numero_primo(int start, int end){
     }
     return total;
 }
-
 
 void emissor(int rank, int total_workers, int n) {
     int chunk_size = n / total_workers;
@@ -54,21 +52,21 @@ void worker(int rank) {
 void coletor(int rank, int total_workers) {
     int global_count = 0;
     double max_time = 0;
-    //double elapsed_time;
     for (int i = 1; i <= total_workers; i++) {
         int local_count;
+        double elapsed_time;
         MPI_Recv(&local_count, 1, MPI_INT, i, TAG_RESULT, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         MPI_Recv(&elapsed_time, 1, MPI_DOUBLE, i, TAG_RESULT, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 
         printf("Coletor (rank %d): Recebe resultado do trabalhador %d: %d, Tempo %.6f segundos\n", rank, i, local_count, elapsed_time);
         
-        global_count +=  local_count;
+        global_count += local_count;
         if (elapsed_time > max_time) {
             max_time = elapsed_time;
         }        
     }
     printf("Coletor (rank %d): Total Numero Primo: %d\n", rank, global_count);
-    printf("Collector (rank %d): Max elapsed time among workers: %.6f seconds\n", rank, max_time);
+    printf("Coletor (rank %d): Max elapsed time among workers: %.6f seconds\n", rank, max_time);
 }
 
 
@@ -91,14 +89,11 @@ int main(int argc, char *argv[]) {
         emissor(rank, size - 1, n);
     } else {
         worker(rank);
-        if (rank == size - 1) {
-            coletor(rank, size - 1);
-        }
     }
 
-    end_time = MPI_Wtime();
-
     if (rank == 0) {
+        coletor(rank, size - 1);
+        end_time = MPI_Wtime();
         printf("Tempo total de execução: %.6f segundos\n", end_time - start_time);
     }
 
