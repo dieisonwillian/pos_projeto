@@ -22,9 +22,11 @@ int numero_primo(int start, int end){
 
 void emissor(int rank, int total_workers, int n) {
     int chunk_size = n / total_workers;
+    int resto = n % total_workers;
     int start = 2;
     for (int i = 1; i <= total_workers; i++) {
-        int end = ( i == total_workers) ? n : start + chunk_size - 1;
+        int extra = (i <= resto) ? 1 : 0;
+        int end = start + chunk_size + extra - 1;
         int task[2] = {start, end};
         MPI_Send(task, 2, MPI_INT, i, TAG_TASK, MPI_COMM_WORLD);
         printf("emissor (rank %d): Envia tarefa para o trabalhador %d\n", rank, i);
@@ -67,7 +69,8 @@ void coletor(int rank, int total_workers) {
         global_count += local_count;
         if (elapsed_time > max_time) {
             max_time = elapsed_time;
-        }    
+        } 
+
         workers_done++;    
     }
     printf("Coletor (rank %d): Total Numero Primos: %d\n", rank, global_count);
